@@ -472,6 +472,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.2"
+  mask_input_formatter:
+    dependency: "direct main"
+    description:
+      name: mask_input_formatter
+      sha256: c3543db896e8e24e15c49733650301e495fef4f82853bcb387b29ac1d4ae07ae
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   matcher:
     dependency: transitive
     description:
@@ -592,6 +600,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
+  pinput:
+    dependency: "direct main"
+    description:
+      name: pinput
+      sha256: "692e1c29703abefad6c502e97b4d946d506384397438ea242afadbfe48354819"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.1"
   platform:
     dependency: transitive
     description:
@@ -733,6 +749,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.6"
+  top_snackbar_flutter:
+    dependency: "direct main"
+    description:
+      name: top_snackbar_flutter
+      sha256: ad3f93062450e8c7db97b271d405c180536408cc2be4380a59da7022eb1d750c
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0"
   typed_data:
     dependency: transitive
     description:
