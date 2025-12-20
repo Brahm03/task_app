@@ -1,13 +1,21 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 import 'package:task_wan_app/colors/app_colors.dart';
+import 'package:task_wan_app/cubit/auth_cubit.dart';
 import 'package:task_wan_app/screens/phone_login.dart';
 import 'package:task_wan_app/widgets/signup_with_phone.dart';
 
 class Verification extends StatefulWidget {
-  const Verification({super.key});
+  const Verification({
+    super.key,
+    required this.phoneNumber,
+    required this.verificationID,
+  });
+
+  final String phoneNumber;
+  final String verificationID;
 
   @override
   State<Verification> createState() => _VerificationState();
@@ -65,12 +73,13 @@ class _VerificationState extends State<Verification> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                "Code has been sent to +91 *********1245",
+              Text(
+                "Code has been sent to ${widget.phoneNumber}",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
               Pinput(
+                controller: _verification,
                 length: 6,
                 showCursor: true,
                 pinAnimationType: PinAnimationType.slide,
@@ -84,7 +93,11 @@ class _VerificationState extends State<Verification> {
                   width: 50,
                 ),
                 onCompleted: (pin) {
-                  // VerifyPin
+                  context.read<AuthCubit>().submitCode(
+                    code: _verification.text,
+                    verificationId: widget.verificationID,
+                    context: context,
+                  );
                 },
               ),
               const SizedBox(height: 20),
@@ -106,7 +119,16 @@ class _VerificationState extends State<Verification> {
                 ],
               ),
               const SizedBox(height: 20),
-              SignupWithPhone(name: "Verify", onPressed: () {}),
+              SignupWithPhone(
+                name: "Verify",
+                onPressed: () {
+                  context.read<AuthCubit>().submitCode(
+                    context: context,
+                    code: _verification.text,
+                    verificationId: widget.verificationID,
+                  );
+                },
+              ),
             ],
           ),
         ),

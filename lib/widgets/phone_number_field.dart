@@ -21,7 +21,6 @@ class PhoneNumberField extends StatefulWidget {
 class _PhoneNumberFieldState extends State<PhoneNumberField> {
   @override
   void initState() {
-    
     super.initState();
   }
 
@@ -46,8 +45,8 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
                 controller: widget.countrCodeController..text = '+998',
                 inputFormatters: [LengthLimitingTextInputFormatter(4)],
                 onChanged: (value) {
-                  print( widget.countrCodeController.text);
-                   widget.phoneNumberController.clear();
+                  print(widget.countrCodeController.text);
+                  widget.phoneNumberController.clear();
                 },
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(border: InputBorder.none),
@@ -57,12 +56,8 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
             const SizedBox(width: 10),
             Expanded(
               child: TextField(
-                controller:  widget.phoneNumberController,
-                inputFormatters: [
-                  MaskInputFormatter(
-                    mask: MaskService.uzb,
-                  ),
-                ],
+                controller: widget.phoneNumberController,
+                inputFormatters: [MaskInputFormatter(mask: MaskService.uzb)],
                 keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(

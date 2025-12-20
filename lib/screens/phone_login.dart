@@ -13,6 +13,9 @@ import 'package:task_wan_app/widgets/signup_with_phone.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+// * SHA1 key ->
+// * ID ->
+
 class PhoneLogin extends StatefulWidget {
   const PhoneLogin({super.key});
 
@@ -53,6 +56,8 @@ class _PhoneLoginState extends State<PhoneLogin> {
             showDialog(
               context: context,
               builder: (context) => Container(
+                height: 60,
+                width: 60,
                 padding: EdgeInsets.all(6),
                 decoration: BoxDecoration(
                   color: AppColors.kPrimary,
@@ -72,10 +77,6 @@ class _PhoneLoginState extends State<PhoneLogin> {
             showTopSnackBar(
               Overlay.of(context),
               CustomSnackBar.info(message: "Check ur messages"),
-            );
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Verification()),
             );
           }
         },
@@ -102,7 +103,18 @@ class _PhoneLoginState extends State<PhoneLogin> {
                 name: "Sign in",
                 onPressed: () {
                   context.read<AuthCubit>().verifyWithPhoneNumber(
-                    phoneNumber: "${_codeController.text} ${_phoneNumberController.text}",
+                    phoneNumber:
+                        "${_codeController.text} ${_phoneNumberController.text}",
+                    onCodeSent: (id) {
+                      Navigator.pushNamed(
+                        context,
+                        '/verification',
+                        arguments: [
+                          "${_codeController.text} ${_phoneNumberController.text}",
+                          id,
+                        ],
+                      );
+                    },
                   );
                 },
               ),
