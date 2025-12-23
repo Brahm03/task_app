@@ -46,7 +46,7 @@ class _PhoneLoginState extends State<PhoneLogin> {
               MaterialPageRoute(builder: (context) => const SignIn()),
             );
           },
-          icon: const Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
         ),
         elevation: 0,
       ),
@@ -105,13 +105,13 @@ class _PhoneLoginState extends State<PhoneLogin> {
                   context.read<AuthCubit>().verifyWithPhoneNumber(
                     phoneNumber:
                         "${_codeController.text} ${_phoneNumberController.text}",
-                    onCodeSent: (id) {
+                    onCodeSent: (verificationID) {
                       Navigator.pushNamed(
                         context,
                         '/verification',
                         arguments: [
                           "${_codeController.text} ${_phoneNumberController.text}",
-                          id,
+                          verificationID,
                         ],
                       );
                     },
