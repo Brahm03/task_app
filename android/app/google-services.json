@@ -12,7 +12,20 @@
           "package_name": "com.example.task_wan_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "420634725648-tp0a6m1q74p79jnqpj9er76o6radafi3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.task_wan_app",
+            "certificate_hash": "40f7beffdc4b77c1a2ed6814190daca4f706730b"
+          }
+        },
+        {
+          "client_id": "420634725648-iik70l3fnoqul575kt7el225ikj0mcir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD28CDTSJU5h1Gt7eF-fZWYsKYvrovo9RE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420634725648-iik70l3fnoqul575kt7el225ikj0mcir.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "420634725648-9jnlp4cqli37d0b544q39rupseqgnpci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taskWanApp"
+              }
+            }
+          ]
         }
       }
     }
